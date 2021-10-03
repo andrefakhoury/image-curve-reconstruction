@@ -1,0 +1,44 @@
+\providecommand{\abntreprintinfo}[1]{%
+ \citeonline{#1}}
+\setlength{\labelsep}{0pt}\begin{thebibliography}{}
+\providecommand{\abntrefinfo}[3]{}
+\providecommand{\abntbstabout}[1]{}
+\abntbstabout{1.45.2.1 }
+
+\bibitem{agoston2005}
+\abntrefinfo{Agoston}{AGOSTON}{2005}
+{\hspace{.7mm}AGOSTON, M. \emph{Computer graphics and geometric modeling}:
+  implementation and algorithms. London: Springer-Verlag, 2005.}
+
+\bibitem{petronetto2013}
+\abntrefinfo{Petronetto et al.}{PETRONETTO et al.}{2013}
+{\hspace{.7mm}PETRONETTO, F. et al. Mesh-free discrete laplace–beltrami
+  operator.
+\emph{Computer Graphics Forum}, v.~32, n.~6, p. 214--226, 2013.
+Dispon{\'\i}vel em:
+  $<$https://onlinelibrary.wiley.com/doi/abs/10.1111/cgf.12086$>$.}
+
+\bibitem{pinkall:1996}
+\abntrefinfo{Pinkall e Polthier}{PINKALL; POLTHIER}{1996}
+{\hspace{.7mm}PINKALL, U.; POLTHIER, K. Computing discrete minimal surfaces and
+  their conjugates.
+\emph{Experimental Mathematics}, v.~2, 11 1996.}
+
+\bibitem{soares2007}
+\abntrefinfo{Soares}{SOARES}{2007}
+{\hspace{.7mm}SOARES, I.~P.
+\emph{Movimento de malhas e remalhamento de malhas superficiais}.
+Tese (Doutorado) --- ICMC-USP, São Carlos, 2007.}
+
+\bibitem{sorkine2006}
+\abntrefinfo{Sorkine}{SORKINE}{2006}
+{\hspace{.7mm}SORKINE, O. Differential representations for mesh processing.
+\emph{Computer Graphics Forum}, European Association for Computer Graphics,
+  v.~25, n.~4, p. 789--807, 2006.}
+
+\bibitem{sorkine2004}
+\abntrefinfo{Sorkine e Cohen-Or}{SORKINE; COHEN-OR}{2004}
+{\hspace{.7mm}SORKINE, O.; COHEN-OR, D. Least-squares meshes.
+\emph{Proceedings of Shape Modeling International}, p. 191--199, 2004.}
+
+\end{thebibliography}

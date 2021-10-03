@@ -1,0 +1,139 @@
+% ICMC Beamer (Apresentação TCC)
+%
+% Modified by Luana Okino Sawada
+% losbcc@gmail.com
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Original project: Radboud University Beamer (version 2)
+%
+% https://www.sharelatex.com/templates/presentations/radboud-university-beamer-(version-2)
+%
+% Copyright 2009 by Pim Vullers
+%
+% This file may be distributed and/or modified
+%
+% 1. under the LaTeX Project Public License and/or
+% 2. under the GNU Public License.
+%
+% See the file doc/licenses/LICENSE for more details.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Inherit definitions from existing themes (DO NOT MODIFY THESE)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%Added by Martijn Sprengers (Same as oxygen theme)
+\usetheme{Rochester}
+\RequirePackage{pgf}
+\pgfdeclareimage[width=1.0\paperwidth]{header-logo}{icmc/icmc_header}
+\setbeamercovered{transparent}
+
+% Layout scheme for outer elements: split header and footer
+\useoutertheme{split}
+
+% Color scheme for outer elements: use background colors
+\usecolortheme{whale}
+
+% Layout scheme for inner elements: rounded elements
+\useinnertheme{rounded} 
+
+% Color scheme for inner elements: use foreground colors
+\usecolortheme{orchid}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tweak definitions of inner theme to match personal preferences (MODIFY THESE)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Itemize items: default (triangle), circle, square, ball
+\setbeamertemplate{itemize items}[circle]
+
+% Enumerate items: default, circle, square, ball
+\setbeamertemplate{enumerate items}[circle]
+
+% Outline: default, sections numbered, subsections numbered, circle, square, ball, ball unnumbered
+\setbeamertemplate{sections/subsections in toc}[default]
+
+% General blocks: 
+\setbeamertemplate{blocks}[rounded]
+
+% Title page:
+\setbeamertemplate{title page}[default][colsep=-4bp,rounded=true]
+
+% Part page:
+\setbeamertemplate{part page}[default][colsep=-4bp,rounded=true]
+
+% Navigation symbols:
+\setbeamertemplate{navigation symbols}{}
+
+% Background
+\pgfdeclareimage[width=\paperwidth,height=\paperheight]{bg}{icmc/icmc_background}
+\setbeamertemplate{background}{\pgfuseimage{bg}}
+
+% Colors now blue
+\usecolortheme[RGB={0,76,153}]{structure}
+
+%frametitle = blue and frametitle right = black
+\setbeamercolor{frametitle}{parent=subsection in head/foot}
+\setbeamercolor{frametitle right}{parent=section in head/foot}
+
+% Defining colors and styles of fonts
+\definecolor{icmc}{RGB}{0,76,153}
+\setbeamercolor*{Title bar}{fg=white}
+\setbeamercolor*{frametitle}{parent=Title bar}
+\setbeamercolor*{black_heading}{bg=black}
+
+\definecolor{icmcblue}{RGB}{0, 0, 53}
+\setbeamercolor*{heading}{bg=icmcblue, parent = author in head/foot}
+
+\setbeamercolor*{footer}{bg=icmc, parent = title in head/foot}
+
+%Frame Title and Headline style:
+\beamer@headheight=0.13\paperwidth
+
+%Title style:
+\defbeamertemplate*{frametitle}{icmc theme}
+{
+  \vskip -0.3\beamer@headheight
+  \vskip -\baselineskip
+  \vskip -0.2cm
+  \hskip -0.5cm\usebeamerfont*{frametitle}\insertframetitle
+  \vskip -0.05cm
+  \hskip -0.25cm\usebeamerfont*{framesubtitle}\insertframesubtitle
+}
+
+% Headline style
+\defbeamertemplate*{headline}{icmc theme}{%
+
+  \pgfuseimage{header-logo}
+  \vskip -1.95cm
+  \linethickness{0pt}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.3\beamer@headheight]{heading}
+    \usebeamerfont{section in head/foot}%
+    \insertsectionnavigationhorizontal{0pt}{\hskip0.22cm}{}%
+  \end{beamercolorbox}}
+
+  \framelatex{
+  \begin{beamercolorbox}[wd=\paperwidth,ht=0.9\beamer@headheight]{Title bar}
+  \end{beamercolorbox}}
+}
+
+% Footline: AUTHOR | TITLE | DATE FRAMENUMBER
+\defbeamertemplate*{footline}{icmc theme}{%
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.23\paperwidth,ht=2.25ex,dp=1ex,center]{heading}%
+    \usebeamerfont{heading}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.13\paperwidth,ht=2.25ex,dp=1ex,center]{heading}%
+    \usebeamerfont{heading}\insertshortdate
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.556667\paperwidth,ht=2.25ex,dp=1ex,center]{footer}%
+    \usebeamerfont{footer}\insertshorttitle
+  \end{beamercolorbox}%
+   \begin{beamercolorbox}[wd=0.083333\paperwidth,ht=2.25ex,dp=1ex,right]{title in head/foot}%
+    \insertframenumber{} / \inserttotalframenumber\hspace*{2ex} 
+  \end{beamercolorbox}}%
+  \vskip0pt%
+}

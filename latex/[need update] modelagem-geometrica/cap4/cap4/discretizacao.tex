@@ -1,0 +1,20 @@
+%%%% colocar essa parte aqui nas `Aplicacoes e exemplos`
+
+Malhas Dinâmicas\cite{soares2007}.
+
+Utilizando pesos, podemos simular o comportamento de molas para as arestas.
+As arestas então ficam sujeitas à lei de Hook (f = -ko), em que um k representa a resistência à deformações e o é a deformação da mola.
+O caso padrão é termos k constante para a malha toda.
+Outra possibilidade é a resistência das arestas dependem do seu tamanho (1/t, onde t é o tamanho da aresta). Desta forma, arestas menores são mais resistentes, e arestas maiores possuem um k menor.
+
+É possível também adicionar molas internas entre os tetraedros formados por diferentes vértices em malhas tridimensionais triangulares. 
+Isso aumenta o controle que temos ao mover uma determinada parte da malha em relação à outras partes.
+Porém, para evitar que as molas sejam torcidas de forma inválida ou que os triângulo se tornem inválidos, é necessário tomar uma série de precauções.
+Triângulos são considerados inválidos caso eles possuam áreas negativas ou algum outro comportamento incompatível.
+
+
+\begin{itemize}
+    \item Mudar o coeficiente, pra mola ficar dura (acho q foi isso);
+    \item Possível adicionar mais molas mas não é o foco;
+    \item Quando for falar das molas, falar da aplicação em física (lei de Hook, etc);
+\end{itemize}

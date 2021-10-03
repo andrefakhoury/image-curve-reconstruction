@@ -1,0 +1,215 @@
+%% abtex2-modelo-projeto-pesquisa.tex, v-1.9.7 laurocesar
+%% Copyright 2012-2018 by abnTeX2 group at http://www.abntex.net.br/ 
+%%
+%% This work may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%   http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2005/12/01 or later.
+
+\documentclass[
+	% -- opções da classe memoir -https://www.folha.uol.com.br/-
+	12pt,				% tamanho da fonte
+	% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+	oneside,			% para impressão apenas em frente, nao frente verso. Oposto a twoside
+	a4paper,			% tamanho do papel. 
+	sumario=tradicional,
+	% -- opções da classe abntex2 --
+% 	chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+	%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+	%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+	%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+	% -- opções do pacote babel --
+	english,			% idioma adicional para hifenização
+	french,				% idioma adicional para hifenização
+	spanish,			% idioma adicional para hifenização
+	brazil,				% o último idioma é o principal do documento
+]{abntex2}
+
+% ---
+% PACOTES
+% ---
+
+% ---
+% Pacotes fundamentais 
+% ---
+% \usepackage{helvet}
+% \renewcommand{\familydefault}{\sfdefault}
+% \usepackage{times}
+\usepackage{lmodern}			    % Usa a fonte Latin Modern
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{lipsum}				% para geração de dummy text
+% ---
+\usepackage{todonotes}
+
+\usepackage{float}
+\usepackage{amssymb}
+\usepackage{amsmath}
+
+\usepackage{mathtools}
+% ---
+% Pacotes de citações
+% ---
+% \usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+\usepackage{subcaption}
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+
+% --- 
+% % CONFIGURAÇÕES DE PACOTES
+% % --- 
+
+% ---
+% Informações de dados para CAPA e FOLHA DE ROSTO
+% ---
+\titulo{Reconstrução de curvas por meio de características robustas extraídas de imagens}
+\autor{%
+  UNIVERSIDADE DE SÃO PAULO
+  \par
+  Instituto de Ciências Matemáticas e de Computação}
+\local{Brasil}
+\data{2021}
+\instituicao{%
+  \textbf{Bolsista:} André Luís Mendes Fakhoury
+  \par
+  \textbf{Orientador:} João do Espirito Santo Batista Neto}
+\tipotrabalho{Iniciação Científica}
+\preambulo{Relatório científico parcial de iniciação científica referente ao processo FAPESP nº 2020/07224-5 para o período entre 01/10/2020 e 10/03/2021.}
+% ---
+
+% ---
+% Configurações de aparência do PDF final
+
+% alterando o aspecto da cor azul
+\definecolor{blue}{RGB}{41,5,195}
+\definecolor{black}{RGB}{0,0,0}
+
+% informações do PDF
+\makeatletter
+\hypersetup{
+     	%pagebackref=true,
+		pdftitle={\@title}, 
+		pdfauthor={André Luís Mendes Fakhoury},
+    	pdfsubject={\imprimirpreambulo},
+	    pdfcreator={LaTeX with abnTeX2},
+		pdfkeywords={abnt}{latex}{abntex}{abntex2}{projeto de pesquisa}, 
+		colorlinks=true,       		% false: boxed links; true: colored links
+    	linkcolor=black,          	% color of internal links
+    	citecolor=black,        		% color of links to bibliography
+    	filecolor=magenta,      		% color of file links
+		urlcolor=black,
+		bookmarksdepth=4
+}
+\makeatother
+% --- 
+
+% --- 
+% Espaçamentos entre linhas e parágrafos 
+% --- 
+
+% O tamanho do parágrafo é dado por:
+\setlength{\parindent}{1.3cm}
+
+% Controle do espaçamento entre um parágrafo e outro:
+\setlength{\parskip}{0.2cm}  % tente também \onelineskip
+\setlength{\marginparwidth}{2cm}
+
+% \DoubleSpacing
+
+% ---
+% compila o indice
+% ---
+\makeindex
+% ---
+
+% ----
+% Início do documento
+% ----
+
+\begin{document}
+
+% Seleciona o idioma do documento (conforme pacotes do babel)
+%\selectlanguage{english}
+\selectlanguage{brazil}
+
+% Retira espaço extra obsoleto entre as frases.
+\frenchspacing 
+
+% ----------------------------------------------------------
+% ELEMENTOS PRÉ-TEXTUAIS
+% ----------------------------------------------------------
+% \pretextual
+
+% ---
+% Folha de rosto
+% ---
+ \imprimirfolhaderosto
+% ---
+
+% ---
+% inserir o sumario
+% ---
+\pdfbookmark[0]{\contentsname}{toc}
+\tableofcontents*
+\cleardoublepage
+% ---
+
+% ----------------------------------------------------------
+% ELEMENTOS TEXTUAIS
+% ----------------------------------------------------------
+\textual
+\pagestyle{simple}
+
+\begingroup
+\let\clearpage\relax
+
+% ----------------------------------------------------------
+% Organização
+% ----------------------------------------------------------
+
+\chapter{Introdução}\label{ch::intro}
+\input{tex/1-intro}
+
+%\chapter{Revisão bibliográfica}\label{ch::teoria}
+%\input{tex/2-teoria}
+
+\chapter{Atividades realizadas}\label{ch::realizadas}
+\input{tex/3-realizada}
+
+\chapter{Próximas atividades}\label{ch::proximas}
+\input{tex/4-proximas}
+
+% \chapter{Considerações finais}\label{ch::consideracoes}
+% \input{tex/5-consideracoes}
+
+
+\endgroup
+% ----------------------------------------------------------
+% ELEMENTOS PÓS-TEXTUAIS
+% ----------------------------------------------------------
+
+\postextual
+
+% ----------------------------------------------------------
+% Referências bibliográficas
+% ----------------------------------------------------------
+\bibliography{referencias}
+
+%---------------------------------------------------------------------
+% INDICE REMISSIVO
+%---------------------------------------------------------------------
+\phantompart
+
+\printindex
+
+\end{document}

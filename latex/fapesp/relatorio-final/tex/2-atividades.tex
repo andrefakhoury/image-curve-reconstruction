@@ -1,0 +1,63 @@
+O objetivo desta seção é relatar as atividades desenvolvidas pelo aluno bolsista no período a que se refere este relatório. A seção \ref{sec:extracao} descreve o processo de extração dos pontos importantes da curva discreta obtida da imagem. A seção \ref{sec:combinacao} contém o que foi desenvolvido na etapa de combinação dos algoritmos, com a respectiva fonte para os códigos desenvolvidos. Por último, a etapa \ref{sec:avaliacao} ilustra os resultados obtidos, nos diferentes tipos de imagens e malhas utilizados para testes.
+
+\section{Extração dos pontos importantes}\label{sec:extracao}
+
+Nesta etapa, recebe-se um conjunto finito de $n$ pontos, que representa uma curva discreta, e objetiva-se retornar os índices dos pontos âncora que serão utilizados pelo algoritmo de reconstrução. A quantidade de pontos a serem escolhidos também é enviada por parâmetro.
+
+Alguns métodos foram considerados para a seleção dos pontos importantes. Foram eles:
+
+\begin{itemize}
+    \item \textbf{Pontos linearmente espaçados:} os pontos são escolhidos de modo que os índices sejam igualmente espaçados entre si.
+    \item \textbf{Escolha aleatória de pontos:} os pontos são escolhidos de modo aleatório, apenas tomando cuidado para que não sejam muito próximos um do outro.
+    \item \textbf{Escolha de pontos pela curvatura:} inicialmente é calculada a curvatura discreta da curva em cada ponto, e aqueles com maior valor absoluto são escolhidos.
+\end{itemize}
+
+Destes, serão analisados resultados encontrados utilizando pontos linearmente espaçados e pela curvatura. A escolha de pontos igualmente espaçados pode ser realizada facilmente utilizando a função \texttt{linspace} em linguagens como Python e MATLAB. Já para a escolha de pontos pela curvatura é previamente necessária a análise da curva discreta. Para isso, será revisada a teoria da análise de curvatura discreta.
+
+A curvatura de uma curva regular parametrizada por uma aplicação $t \rightarrow (x(t), y(t))$, onde $x(t)$ e $y(t)$ são funções de classe $C^2$, é dada por \cite{OliveiraMarroquim2020}:
+
+\begin{equation}
+	\kappa (t) = \frac{x'(t) y''(t) - y'(t) x''(t)}{(x'(t)^2 + y'(t)^2)^{3/2}}.
+\end{equation}
+
+No projeto, as curvas não são contínuas, mas sim representadas por um conjunto discreto de pontos $(x, y)$ - que representam a posição de cada pixel. Por isso, as derivadas mostradas na equação acima devem ser calculadas de maneira discreta. Uma das maneiras de se calcular isto é partir de métodos espectrais de Fourier \cite{brethwashington}.
+
+Seja $u_j$ uma aproximação discreta da função $u(x)$, com $n$ pontos de amostra $x_j \in h, 2h, \dots, ih, \dots, 2\pi - h, 2\pi$, onde $h = 2\pi/n$. Para o caso discreto, pode-se aplicar a versão computacionalmente otimizada da transformada de Fourier (FFT) em $u_j$, tal que $FFT(u_j) \equiv \hat{u}_k$, em que $k \in \frac{-n}{2}+1, \dots, \frac{n}{2}$. Sabe-se que:
+
+$$FFT \left (\frac{\partial u_j}{\partial x} \right) \equiv i k \hat{u}_k$$
+
+Assim, para obter o valor da derivada, basta calcular a transformada rápida inversa IFFT. O código calcula a derivada de uma função discreta $y$ no domínio $x$ e emprega um filtro Gaussiano com fator de suavização $\sigma$. A aplicação de um filtro Gaussiano no cálculo da derivada tem por objetivo evitar a amplificação do efeito de serrilhamento (\textit{aliasing}), quando houver, causado pela transformada de Fourier \cite{li1987}. O filtro Gaussiano cumpre este objetivo ao eliminar altas frequências presentes no sinal com a propriedade de preservar a localização de pontos importantes da mudança da curvatura \cite{tomasi2007}.
+
+Com a curvatura de cada ponto calculada, é necessário escolher os pontos que serão utilizados como âncoras para representar a curva. 
+
+\todo[inline]{Colocar um pseudocodigo ou algo assim para como pegar os pontos}
+
+\section{Combinação dos algoritmos}\label{sec:combinacao}
+
+Nesta etapa, foi desenvolvido um notebook em Python que organiza todas as etapas. Está disponibilizado no GitHub (colocar link aqui).
+
+\todo[inline]{Colocar o link do github e dar uma explicada geral no codigo e tals}
+
+\section{Avaliação e testes}\label{sec:avaliacao}
+
+Na etapa final do projeto foram realizados testes com diversas imagens, curvas e malhas. Primeiramente serão descritas as análises utilizando as imagens de folhas do repositório \citeonline{imageclef2011} - inicialmente descrito no projeto como o banco de dados a ser testado - e, posteriormente, testes em curvas abertas e fechadas em $\mathbb{R}^2$ e $\mathbb{R}^3$. Também foram desenvolvidos testes em malhas poligonais, que serão descritos no último tópico desta seção.
+
+O erro será calculado calculando a distância entre cada ponto da curva original e da curva reconstruída. Para isso, será utilizada a distância euclidiana: para cada índice de vértice $i$, o erro dos pontos obtidos $\mathbf{v'}$ em relação aos pontos originais $\mathbf{v}$ é:
+
+$$E_i(\mathbf{v, v'}) = \sqrt{(\mathbf v_i^{(x)} - \mathbf v_i'^{(x)})^2 + (\mathbf v_i^{(y)} - \mathbf v_i'^{(y)})^2}$$
+
+\noindent e o erro total da reconstrução é calculado como a soma do erro para cada ponto:
+
+$$E(\mathbf{v, v'}) = \sum_{i = 1}^{|V|}E_i(\mathbf{v, v'})$$
+
+\subsection{Imagens de folhas do repositório \citeonline{imageclef2011}}
+
+\todo[inline]{Colocar as imagens utilizadas e resultados obtidos}
+
+\subsection{Curvas abertas e em $\mathbb{R}^3$}
+
+\todo[inline]{Colocar as imagens utilizadas e resultados obtidos}
+
+\subsection{Malhas poligonais}
+
+\todo[inline]{Colocar as imagens utilizadas e resultados obtidos}

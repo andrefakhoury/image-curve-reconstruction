@@ -1,0 +1,89 @@
+\documentclass{beamer}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{graphicx,hyperref,icmc,url}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{tikz}
+\newcommand{\destaq}[1]{\textcolor{purple}{\textbf{#1}}}
+
+% The title of the presentation:
+%  - first a short version which is visible at the bottom of each slide;
+%  - second the full title shown on the title slide;
+\title[Modelagem com o operador discreto de Laplace-Beltrami]{Modelagem com o operador discreto de Laplace-Beltrami}
+
+% Optional: a subtitle to be displayed on the title slide
+\subtitle{}
+
+% The author(s) of the presentation:
+%  - again first a short version to be displayed at the bottom;
+%  - next the full list of authors, which may include contact information;
+\author[André Luís Mendes Fakhoury]{
+    \Large{André Luís Mendes Fakhoury} \\ \medskip
+    \small{\href{mailto:andrefakhoury@usp.br}{\nolinkurl{andrefakhoury@usp.br}}} \\ \bigskip
+    \small{Orientador: João do Espirito Santo Batista Neto}
+}
+
+% \\ \bigskip
+    % \large{}
+
+% The institute:
+%  - to start the name of the university as displayed on the top of each slide
+%    this can be adjusted such that you can also create a Dutch version
+%  - next the institute information as displayed on the title slide
+\institute[ICMC/USP]{
+    Vinculado ao projeto: ``Mapeamento de características robustas entre diferentes domínios e espaços $\mathbb{R}^2$ e $\mathbb{R}^3$''\\ \medskip
+    Instituto de Ciências Matemáticas e de Computação -- ICMC \\
+    Universidade de São Paulo - USP
+}
+
+% Add a date and possibly the name of the event to the slides
+%  - again first a short version to be shown at the bottom of each slide
+%  - second the full date and event name for the title slide
+\date[10/12/2020]{\footnotesize{10 de dezembro de 2020}}
+
+\AtBeginSection[]
+{
+    \begin{frame}<beamer>{Sumário}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+\begin{document}
+    
+    \begin{frame}[plain]
+        \titlepage
+    \end{frame}
+    
+    \begin{frame}
+      \frametitle{Sumário}
+      \tableofcontents
+    \end{frame}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Modelagem geométrica}
+\input{tex/introducao}
+
+\section{Definições}
+\input{tex/definicoes}
+
+\section{Utilidades}
+\input{tex/utilidades}
+
+\section{Curvatura discreta}
+\input{tex/curvatura}
+    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Referências}
+
+\nocite{*}
+\begin{frame}[allowframebreaks]
+  \frametitle{Referência Bibliográfica}
+  \bibliographystyle{siam}
+  
+  \bibliography{referencias}
+\end{frame}
+
+\end{document}

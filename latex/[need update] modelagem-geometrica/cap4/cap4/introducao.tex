@@ -1,0 +1,21 @@
+A modelagem geométrica, também denominada modelagem de superfícies, consiste de um conjunto de técnicas e algoritmos utilizados para modelar determinadas formas matemáticas, sujeitas a condições particulares de forma e suavidade.
+
+Aplica conhecimentos de matemática aplicada e geometria computacional, e é amplamente utilizada em diversas áreas, como a engenharia automotiva e aeronáutica, em especial em CAD/CAM \textit{(computer aided design/manufacturing)}, por seu alto poder em modelagem de superfícies.
+
+Em contextos tridimensionais, alguns autores utilizam o termo ``modelagem de sólidos'' \cite{agoston2005} - contudo, este termo não será empregado neste livro, tendo em vista que serão abordadas as modelagens de objetos geométricos quaisquer.  
+
+Uma das principais técnicas utilizadas para modelagem geométrica é o uso de malhas poligonais para o mapeamento de superfícies.
+
+\begin{defi}[Malhas Poligonais]
+Seja $V$ um conjunto de vértices em um plano bidimensional ou um espaço tridimensional, $E$ o conjunto de arestas bidirecionais entre vértices de $V$ e $F$ o conjunto de faces descritas por $V$ e $E$. A Malha Poligonal $M$ é o conjunto de $V$, $E$ e $F$ tal que
+
+\begin{equation}
+    \mathbf{\mathcal{M}} = \{V, E, F\}
+\end{equation}
+
+A malha $M$ é categorizada com base nos polígonos formados nas faces do conjunto $F$. Caso as faces formadas sejam triangulares, a malha é dita Triangular. Caso sejam quadriláteros, a malha é denominada Quadrilateral. De fato, as faces da malha poder ter a forma de qualquer polígono simples convexo.
+\end{defi}
+
+Uma das possibilidades de se realizar a modelagem geométrica é com a utilização da discretização do operador de Laplace-Beltrami. Os principais métodos para esta discretização podem ser divididos em dois grupos principais: baseados em malha (\textit{mesh-based}, em que se tem, a priori, informações de conectividade da malha) e baseados em ponto (\textit{point-based}, em que se tem apenas informações dos pontos) \cite{petronetto2013}.
+
+Neste capítulo, será mostrada uma abordagem baseada em malha, descrita em \cite{sorkine2006}. Esta abordagem permite uma representação eficiente de formas, de modo que é possível representar informações de toda a variedade a partir de uma amostra da base. Além disso, também permite variadas utilidades de edição de malhas, como deformações e interpolações.

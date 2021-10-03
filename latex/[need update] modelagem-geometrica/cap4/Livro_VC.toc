@@ -1,0 +1,11 @@
+\babel@toc {portuges}{}
+\contentsline {chapter}{\numberline {1}Modelagem Utilizando Operadores Diferenciais}{5}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Modelagem geométrica}{5}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Discretização do operador de Laplace-Beltrami}{6}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Ponderação das $\delta $-coordenadas}{10}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Molas e malhas dinâmicas}{11}{subsection.1.2.2}%
+\contentsline {section}{\numberline {1.3}Aplicações e exemplos}{12}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}Representação eficiente de formas}{12}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}Edição de malhas}{16}{subsection.1.3.2}%
+\contentsline {section}{\numberline {1.4}Lista de Exercícios}{16}{section.1.4}%
+\contentsline {subsection}{\numberline {1.4.1}Resoluções}{18}{subsection.1.4.1}%
