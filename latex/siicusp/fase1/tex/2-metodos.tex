@@ -51,6 +51,41 @@
 % calculo da curvatura + contorno
 \subsection{Curvatura}
 
+\begin{frame}
+	\frametitle{Curvatura}
+	\framesubtitle{Curvatura contínua}
+	
+	Seja uma curva regular parametrizada por $t \rightarrow (x(t), y(t))$, em que $x(t)$ e $y(t)$ são funções de classe $C^2$. Sua curvatura é dada por:
+	$$\kappa (t) = \frac{x'(t) y''(t) - y'(t) x''(t)}{(x'(t)^2 + y'(t)^2)^{3/2}}$$   
+	
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Curvatura discreta}
+	
+	No caso discreto, precisa-se calcular a derivada discreta.
+	
+	\medskip
+	
+	Utilização de \textbf{métodos espectrais de Fourier} \cite{brethwashington} e \textbf{filtro gaussiano} para suavizar e reduzir erros.
+	
+\end{frame}
+
+\begin{frame}
+\frametitle{Curvatura discreta}
+
+Seja $u_j$ uma aproximação discreta da função $u(x)$, com $n$ pontos de amostra $x_j \in h, 2h, \dots, ih, \dots, 2\pi - h, 2\pi$, onde $h = 2\pi/n$. Pode-se aplicar a transformada rápida de Fourier (FFT) em $u_j$, tal que $FFT(u_j) \equiv \hat{u}_k$, em que $k \in \frac{-n}{2}+1, \dots, \frac{n}{2}$. Sabe-se que:
+
+\medskip
+
+$$FFT \left (\frac{\partial u_j}{\partial x} \right) \equiv i k \hat{u}_k$$
+
+\medskip
+
+Assim, para obter o valor da derivada, basta calcular a transformada rápida inversa IFFT.
+\end{frame}
+
 
 % reconstrucao - sorkine
 \subsection{Reconstrução}
@@ -320,7 +355,7 @@ Fixar vértices $C = \{1, \dots, m\}$ em que sabe-se $\{v_{C_1}, v_{C_2}, \dots,
 
 \begin{figure}
 	\includegraphics[width=0.5\linewidth]{img/lrestricao.png}
-	\caption{Exemplo da matriz $\tilde{L}$ \cite{sorkine2006}}
+	\caption{Exemplo da matriz $\tilde{L}$ \cite{Sorkine2006}}
 \end{figure}
 \end{frame}
 
