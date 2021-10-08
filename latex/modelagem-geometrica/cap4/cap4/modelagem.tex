@@ -1,0 +1,30 @@
+%%%%%%%%% tirei essa parte, da pra explicar isso aqui junto com a "introducao" (que agora chama `Modelagem geometrica`)
+
+Malhas geométricas, também denominadas como malhas poligonais, também possa ser descrita por polígonos de n-vért. Um dos modelos mais tradicionais de malhas geométricas são as malhas triangulares. É em cima deste modelo que as próximas seções serão desenvolvidas.
+
+\begin{defi}[Malha Triangular]
+Seja $V$ um conjunto de pontos em um espaço bidimensional ou tridimensional e $A$ o conjunto de arestas que conectam estes pontos. A malha triangular $M$ é o conjunto de triângulos descrito por M = (V,A), sendo que estes triângulos estão conectados por seus vértices e arestas em comum.
+\end{defi}
+Utilizando Malhas Dinâmicas
+
+
+
+Escolhendo pontos para modificar a malha
+
+Para escolher o ponto a ser modificado em uma região de interesse, é importante selecionar o ponto com o maior rank, ou seja, o vértice mais conectado a outros vértices desta dada região.
+
+\begin{defi}[Rank]
+\end{defi}
+Seja $M$ uma Malha Triangular. Seja $k$ o número de componentes conectados de M e $n$ o número de vértices adjacentes a um vértice $v$.
+O rank de v é dado por 
+\begin{equation}
+rank(v) = n - k
+\end{equation}
+Com um grau de liberdade, pois elementos conectados sempre estarão conectados a pelo menos outro vértice.
+
+
+\begin{itemize}
+    \item Como faz pra que tenha o formato que você queira (movimentando); Malhas Dinâmicas Igor/ Apresentação da Olga
+    \item Como formar e resolver a matriz;
+    \item Como escolher os pontos;
+\end{itemize}

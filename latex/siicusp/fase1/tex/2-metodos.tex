@@ -19,16 +19,16 @@
 
 \destaq{Objetivos:}
 \begin{itemize}
-\item Suavizar a imagem
-\item Remover ruídos
+\item Suavizar a imagem;
+\item Remover ruídos.
 \end{itemize}
 
 \bigskip
 \destaq{Técnicas utilizadas:}
 \begin{itemize}
-	\item Filtro gaussiano ou Perona-Malik
-	\item Binarização por Otsu
-	\item Operadores morfológicos (erosão e dilatação)
+	\item Filtro gaussiano ou Perona-Malik;
+	\item Binarização por Otsu;
+	\item Operadores morfológicos (erosão e dilatação).
 \end{itemize}
 \end{frame}
 
@@ -52,12 +52,23 @@
 \subsection{Curvatura}
 
 \begin{frame}
-	\frametitle{Curvatura}
-	\framesubtitle{Curvatura contínua}
-	
-	Seja uma curva regular parametrizada por $t \rightarrow (x(t), y(t))$, em que $x(t)$ e $y(t)$ são funções de classe $C^2$. Sua curvatura é dada por:
-	$$\kappa (t) = \frac{x'(t) y''(t) - y'(t) x''(t)}{(x'(t)^2 + y'(t)^2)^{3/2}}$$   
-	
+\frametitle{Escolha dos pontos}
+
+\begin{itemize}
+\item \destaq{Pontos linearmente espaçados:} índices igualmente espaçados entre si;
+\medskip
+\item \destaq{Escolha de pontos pela curvatura:} pontos com maior valor absoluto de curvatura.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Curvatura}
+\framesubtitle{Curvatura contínua}
+
+Seja uma curva regular parametrizada por $t \rightarrow (x(t), y(t))$, em que $x(t)$ e $y(t)$ são funções de classe $C^2$. Sua curvatura é dada por:
+$$\kappa (t) = \frac{x'(t) y''(t) - y'(t) x''(t)}{(x'(t)^2 + y'(t)^2)^{3/2}}$$   
+
 \end{frame}
 
 
@@ -208,205 +219,29 @@ em que $H(v_i)$ é a curvatura média de $v_i$ e $n_i$ é a normal à superfíci
 
 \medskip
 
-Intuitivamente, as $\delta$-coordenadas \destaq{encapsulam a forma local da superfície}.
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Vantagens das $\delta$-coordenadas}
+\begin{itemize}
+	\item Intuitivamente, as $\delta$-coordenadas \destaq{encapsulam a forma local da superfície}:
 	\begin{itemize}
-		\item Representam detalhes locais
-		\begin{itemize}
-			\item A direção aproxima o vetor normal;
-			\item A norma aproxima a curvatura média;
-		\end{itemize}
-		\medskip
-		\item Utilização de matrizes esparsas (economizam tempo/memória computacionalmente).
+		\item A direção aproxima o vetor normal;
+		\item A norma aproxima a curvatura média;
 	\end{itemize}
-\end{frame}
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-$$L_s \textbf{x} = \delta^{(x)}$$
-
-\begin{itemize}
-	\item $\delta$-coordenadas são invariantes à translação;
-	\item $L$ e $L_s$ são singulares;
-	\item $\textbf{x} = L_s^{-1} \delta^{(x)}$ é \textbf{indefinido}.
-	\item \textbf{Solução:} adicionar restrições de quem se conhece a localização.
-	
 \end{itemize}
 
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-$$L_s \textbf{x} = \delta^{(x)}$$
-
-\begin{itemize}
-	\item $rank(L) = n - k$, em que $k$ é o número de componentes;
-	\item Fixar vértices $C = \{1, 2, \dots, m\}$, em que sabe-se $\{v_{C_1}, v_{C_2}, \dots, v_{C_m}\}$;
-	\item Ou seja, adicionar restrições $v_{j} = c_j,\ j \in C$;
-	\item Tornando o sistema \textit{full-rank}.
-\end{itemize}
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-Fixar vértices $C = \{1, \dots, m\}$ em que sabe-se $\{v_{C_1}, v_{C_2}, \dots, v_{C_m}\}$:
-
-\bigskip
-
-$$\left(\frac{L}{I_{m\times m} | 0}\right) \textbf{x} = \begin{pmatrix}
-	\delta^{(x)} \\
-	c_{1:m}
-\end{pmatrix}$$
-
-\bigskip
-E o mesmo para os outros vetores de coordenadas $\mathbf{y, z, \dots}$
-\medskip
-
-\smallskip
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-
-Inicialmente, tem-se:
-
-\bigskip
-
-\begin{center}
-	\begin{tikzpicture}
-		\filldraw[fill=olive!30!white, draw=black] (0,0) rectangle node{$L_s$} (2,2);
-		\filldraw[fill=blue!30!white, draw=black] (2.1,0) rectangle node{$x$} (3.1,2);
-		\draw (3.4, 0.95) -- (3.7, 0.95);
-		\draw (3.4, 1.05) -- (3.7, 1.05);
-		\filldraw[fill=purple!30!white, draw=black] (4,0) rectangle node{$\delta^{(x)}$} (6,2);
-	\end{tikzpicture}
-\end{center}
-
-\bigskip
-\medskip
-\smallskip
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-Fixar vértices $C = \{1, \dots, m\}$ em que sabe-se $\{v_{C_1}, v_{C_2}, \dots, v_{C_m}\}$:
-
-\bigskip
-
-\begin{center}
-	\begin{tikzpicture}
-		\filldraw[fill=olive!30!white, draw=black] (0,0) rectangle node{$L_s$} (2,2);
-		\filldraw[fill=olive!50!white, draw=black] (0,0) rectangle node{$I_c$} (2,-0.8);
-		\filldraw[fill=blue!30!white, draw=black] (2.1,0) rectangle node{$x$} (3.1,2);
-		\draw (3.4, 0.95) -- (3.7, 0.95);
-		\draw (3.4, 1.05) -- (3.7, 1.05);
-		\filldraw[fill=purple!30!white, draw=black] (4,0) rectangle node{$\delta^{(x)}$} (6,2);
-		\filldraw[fill=purple!50!white, draw=black] (4,0) rectangle node{$v_c$} (6,-0.8);
-	\end{tikzpicture}
-\end{center}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-Fixar vértices $C = \{1, \dots, m\}$ em que sabe-se $\{v_{C_1}, v_{C_2}, \dots, v_{C_m}\}$:
-
-\bigskip
-
-\begin{center}
-	\begin{tikzpicture}
-		\filldraw[fill=olive!40!white, draw=black] (0,-0.8) rectangle node{$\tilde{L}$} (2,2);
-		\filldraw[fill=blue!30!white, draw=black] (2.1,0) rectangle node{$x$} (3.1,2);
-		\draw (3.4, 0.95) -- (3.7, 0.95);
-		\draw (3.4, 1.05) -- (3.7, 1.05);
-		\filldraw[fill=purple!30!white, draw=black] (4,0) rectangle node{$\delta^{(x)}$} (6,2);
-		\filldraw[fill=purple!50!white, draw=black] (4,0) rectangle node{$v_c$} (6,-0.8);
-	\end{tikzpicture}
-\end{center}
-
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Reconstrução de $v_i$}
-\framesubtitle{A partir das $\delta$-coordenadas}
-
-\begin{figure}
-	\includegraphics[width=0.5\linewidth]{img/lrestricao.png}
-	\caption{Exemplo da matriz $\tilde{L}$ \cite{Sorkine2006}}
-\end{figure}
 \end{frame}
 
 \begin{frame}
 \frametitle{Aplicações}
 \framesubtitle{Representação eficiente de formas}
 
-Com apenas informações de conectividade da malha e alguns pontos fixados (denominados vértices âncora), é possível aproximar toda a geometria, a partir da resolução do sistema pelo método dos mínimos quadrados:
+Com apenas informações de conectividade da malha e alguns pontos fixados (denominados vértices âncora), é possível aproximar toda a geometria, a partir da resolução do sistema pelo \destaq{método dos mínimos quadrados}:
 
 \begin{equation}\label{eq:sisrecover}
-	\left( \frac{L}{\omega I_{m \times m} | 0} \right) \mathbf{x'} = \begin{pmatrix}
+	\left( \frac{L}{I_{m \times m} | 0} \right) \mathbf{x'} = \begin{pmatrix}
 		0\\
-		\omega\ c_{1:m}^{(x)}
+		c_{1:m}^{(x)}
 	\end{pmatrix}
 \end{equation}
 
-em que $c = \{v_1, v_2, \dots, v_m\}$ são os pontos âncora escolhidos como amostra, e $\omega > 0$ é o peso de cada restrição).
+em que $c = \{v_1, v_2, \dots, v_m\}$ são os pontos âncora escolhidos como amostra.
 
-\end{frame}
-
-\begin{frame}
-\frametitle{Aplicações}
-\framesubtitle{Representação eficiente de formas}
-
-Graficamente, para facilitar a visualização, este sistema matricial também pode ser visto deste jeito:
-
-\begin{center}
-	\begin{tikzpicture}
-		\filldraw[fill=olive!40!white, draw=black] (0,-0.8) rectangle node{$\tilde{L}$} (2,2);
-		\filldraw[fill=blue!30!white, draw=black] (2.1,0) rectangle node{$x$} (3.1,2);
-		\draw (3.4, 0.95) -- (3.7, 0.95);
-		\draw (3.4, 1.05) -- (3.7, 1.05);
-		\filldraw[fill=purple!30!white, draw=black] (4,0) rectangle node{$0$} (6,2);
-		\filldraw[fill=purple!50!white, draw=black] (4,0) rectangle node{$v_c$} (6,-0.8);
-	\end{tikzpicture}
-\end{center}
-
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Aplicações}
-\framesubtitle{Representação eficiente de formas}
-
-Em vez de $\delta^{(x)}$ do lado direito, informa-se $0$ nas coordenadas em que não sabe a localização.
-
-\medskip
-
-Estas localizações serão calculadas por informações das malhas, descritas na matriz $\tilde{L}$.
-
-\medskip
-
-Por isso, é importante que se tenha conhecimento de informações de conectividade da malha em análise.
 \end{frame}

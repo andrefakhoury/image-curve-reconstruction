@@ -3,7 +3,7 @@
 
 \begin{itemize}
 \item Imagens de folhas do repositório ImageCLEF (2011) \cite{imageclef2011};
-\item Curvas em $\mathbb{R}^2$ e $\mathbb{R}^3$;
+\item Curvas paramétricas;
 \item Malhas poligonais.
 \end{itemize}
 	
@@ -45,35 +45,18 @@ $$E(\mathbf{v, v'}) = \sum_{i = 1}^{|V|}E_i(\mathbf{v, v'})$$
 
 \begin{frame}
 \frametitle{Resultados}
-\framesubtitle{Curvas em $\mathbb{R}^2$ e $\mathbb{R}^3$}
+\framesubtitle{Curvas paramétricas}
 
 \begin{figure}
 	\centering
-	\begin{subfigure}[b]{0.31\textwidth}
-		\centering
-		\includegraphics[trim={5cm 2cm 3cm 2cm},clip,width=\textwidth]{img/rep_2_10.jpg}
-		\caption{10 pontos}
-		\label{fig:ex24}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.31\textwidth}
-		\centering
-		\includegraphics[trim={5cm 2cm 3cm 2cm},clip,width=\textwidth]{img/rep_2_15.jpg}
-		\caption{15 pontos}
-		\label{fig:ex22}
-	\end{subfigure}
-	\hfill
-	\begin{subfigure}[b]{0.31\textwidth}
-		\centering
-		\includegraphics[trim={5cm 2cm 3cm 2cm},clip,width=\textwidth]{img/rep_2_25.jpg}
-		\caption{25 pontos}
-		\label{fig:ex23}
-	\end{subfigure} %[3 * cos(3 * t); 5 * sin(2 * t)]';
-	\caption{Representação da função paramétrica $(x(t), y(t)) = (3 cos(3t), 5sen(2t))$ utilizando alguns pontos igualmente espaçados como amostra.}
+	\includegraphics[width=1\linewidth]{img/rec_curve.png}
+	\caption{Representação da função paramétrica $(x(t), y(t)) = (3 cos(3t), 5sen(2t))$ utilizando 2\% dos pontos como amostra.}
 	\label{fig:ex2rep}
 \end{figure}
 
 \end{frame}
+
+%	 $z(x, y) = \frac{sen (\sqrt{x^2 + y^2})}{\sqrt{x^2 + y^2}}$
 
 
 \begin{frame}
