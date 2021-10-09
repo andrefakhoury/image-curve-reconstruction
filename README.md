@@ -12,7 +12,7 @@ The main goal of this research project is to extract robust features in $\mathb
 
 The development steps of the project can be seen in the following diagram:
 
-![Diagrama](latex\siicusp\resumos\imagens\diagram.png)
+![Diagrama](latex/siicusp/resumos/imagens/diagram.png)
 
 The preprocessing aims to eliminate noise on the contour, allowing the extraction of a curvature that better fits it. The identification of important points is done calculating the discrete curvature of the contour. The curve reconstruction is based on a method describe by Sorkine (2006) using a few points (called anchor) and connectivity information, by a discretization of the Laplace-Beltrami operator. The validation is done by comparing the reconstructed curve and the original curve, using the Euclidian distance.
 
