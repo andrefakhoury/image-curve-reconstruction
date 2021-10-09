@@ -6,7 +6,7 @@ Research project supported by FAPESP during October 2020 - September 2021.
 
 **Coordinator:** João do Espirito Santo Batista Neto
 
-The main goal of this research project is to extract robust features in $\mathbb{R}^2$ to reconstruct curves obtained from images. It aims to analyse image preprocessing algorithms, contour extraction of objects, analysis of important points from curves and the respective reconstruction of the original curve.
+The main goal of this research project is to extract robust features in R2 to reconstruct curves obtained from images. It aims to analyse image preprocessing algorithms, contour extraction of objects, analysis of important points from curves and the respective reconstruction of the original curve.
 
 ## Materials and Methods
 
