@@ -51,8 +51,9 @@
 	\title{\large{\vspace{-1cm}\textbf{Image curves reconstruction by means of robust features}}}
 	\author{\textbf{André Luís Mendes Fakhoury}\vspace{0.2cm}\\
 		\textbf{Supervisor: João Batista do Espírito Santo Neto}\vspace{0.2cm}\\
-		Instituto de Ciências Matemáticas e de Computação, ICMC-USP\\
-		\normalsize{andrefakhoury@usp.br \quad }}
+		Instituto de Ciências Matemáticas e de Computação, ICMC-USP\vspace{0.1cm}\\
+		\normalsize{andrefakhoury@usp.br \quad }
+		}
 	
 	\date{\null}
 	\maketitle
@@ -67,11 +68,11 @@
 	The development steps of the project can be seen in the diagram from figure \ref{fig:diagrama}.
 	\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.9\linewidth]{imagens/diagrama.png}
+	\includegraphics[width=0.9\linewidth]{imagens/diagram.png}
 	\caption{Block diagram of development.}
 	\label{fig:diagrama}
 	\end{figure}
-	The preprocessing aims to eliminate noise on the contour, allowing the extraction of a curvature that better fits it. The identification of important points is done calculating the discrete curvature of the contour. The curve reconstruction is based on a method describe by Sorkine \cite{sorkine} using a few points (called anchor) and connectivity information, by a discretization of the Laplace-Beltrami operator.
+	The preprocessing aims to eliminate noise on the contour, allowing the extraction of a curvature that better fits it. The identification of important points is done calculating the discrete curvature of the contour. The curve reconstruction is based on a method describe by Sorkine \cite{sorkine} using a few points (called anchor) and connectivity information, by a discretization of the Laplace-Beltrami operator. The validation is done by comparing the reconstructed curve and the original curve, using the Euclidian distance.
 	
 	
 	\section*{\hfil Results}
@@ -98,7 +99,7 @@
 	\end{center}
 	
 	\section*{\hfil Support}
-	The project is supported by FAPESP (Fundação de Amparo à Pesquisa do Estado de São Paulo), nr. 2020/07224-5, which is part of the FAPESP Thematic Project nr. 2019/07316-0.
+	The project is supported by FAPESP (Fundação de Amparo à Pesquisa do Estado de São Paulo), nr. 2020/07224-5, and is also part of the FAPESP Thematic Project nr. 2019/07316-0.
 	
 	
 \end{document}

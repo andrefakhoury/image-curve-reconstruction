@@ -48,11 +48,12 @@
 
 \begin{document}
 	\pagenumbering{gobble}
-	\title{\large{\vspace{-1cm}\textbf{Reconstrução de curvas por meio de características robustas extraídas de imagens}}}
+	\title{\large{\vspace{-1cm}\textbf{Reconstrução de curvas por meio de características robustas em imagens}}}
 	\author{\textbf{André Luís Mendes Fakhoury}\vspace{0.2cm}\\
-		\textbf{Orientador: João Batista do Espírito Santo Neto}\vspace{0.2cm}\\
-		Instituto de Ciências Matemáticas e de Computação, ICMC-USP\\
-		\normalsize{andrefakhoury@usp.br \quad }}
+		\textbf{Orientador: João E.S. Batista Neto}\vspace{0.2cm}\\
+		Instituto de Ciências Matemáticas e de Computação, ICMC-USP\vspace{0.1cm}\\
+		\normalsize{andrefakhoury@usp.br \quad }
+		}
 	
 	\date{\null}
 	\maketitle
@@ -67,20 +68,20 @@
 	As etapas de desenvolvimento do projeto podem ser visualizadas no diagrama da figura \ref{fig:diagrama}.
 	\begin{figure}[ht!]
 	\centering
-	\includegraphics[width=0.85\linewidth]{imagens/diagrama.png}
+	\includegraphics[width=0.84\linewidth]{imagens/diagrama.png}
 	\caption{Diagrama de blocos de desenvolvimento.}
 	\label{fig:diagrama}
 	\end{figure}
-	O pré-processamento visa a eliminação de pontos espúrios no contorno, de forma a permitir a extração de curvatura que melhor corresponda ao contorno original. A identificação dos pontos importantes é realizada a partir do cálculo da curvatura discreta do contorno. A reconstrução da curva baseia-se no método descrito por Sorkine \cite{sorkine} a partir de poucos pontos (âncoras) e informações de conectividade, utilizando uma discretização do operador de Laplace-Beltrami.
-	
+	O pré-processamento visa a eliminação de pontos espúrios no contorno, de forma a permitir a extração de curvatura que melhor corresponda ao contorno original. A identificação dos pontos importantes é realizada a partir do cálculo da curvatura discreta do contorno. A reconstrução da curva baseia-se no método descrito por Sorkine \cite{sorkine} a partir de poucos pontos (âncoras) e informações de conectividade, utilizando uma discretização do operador de Laplace-Beltrami. A validação consiste em se calcular, quantitativamente, a distância euclidiana entre a curva original e a curva reconstruída.
 	
 	\section*{\hfil Resultados}
 	
-	Obtiveram-se resultados de curvas fechadas no $\mathbb{R}^2$, extraídas de imagens de folhas e de faces humanas. Além destas, o método também foi testado para curvas no $\mathbb{R}^3$, curvas abertas e malhas poligonais. A figura \ref{fig:leafs} apresenta um exemplo obtido analisando uma folha de árvore.
+	A figura \ref{fig:leafs} ilustra a aplicação do método sobre uma folha para 30, 40 e 60 pontos. Quanto maior o número de pontos âncora, mais precisa é a reconstrução da forma original. O método também foi aplicado sobre imagens de faces humanas, curvas em $\mathbb{R}^3$ e malhas poligonais.
+	
 
 	\begin{figure}[ht!]
 		\centering
-		\includegraphics[width=0.85\linewidth]{imagens/leafs.png}
+		\includegraphics[width=0.81\linewidth]{imagens/leafs.png}
 		\caption{Reconstrução em uma imagem de folha.}
 		\label{fig:leafs}
 	\end{figure}
